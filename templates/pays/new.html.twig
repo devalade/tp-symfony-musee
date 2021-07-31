@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Pays{% endblock %}
+
+{% block body %}
+    <div class="w-full bg-gray-50 min-h-screen items-center justify-center">
+        <div class="w-1/4 mx-auto p-3">
+            <h1 class="mt-2">Create new Pays</h1>
+            {{ include('pays/_form.html.twig') }}
+
+            <a href="{{ path('pays_index') }}">back to list</a>
+        </div>
+    </div>
+
+{% endblock %}
