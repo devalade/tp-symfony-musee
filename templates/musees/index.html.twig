@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Musees index{% endblock %}
+
+{% block body %}
+    <h1>Musees index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NumMus</th>
+                <th>NomMus</th>
+                <th>Nblivres</th>
+                <th>CodePays</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for musee in musees %}
+            <tr>
+                <td>{{ musee.id }}</td>
+                <td>{{ musee.numMus }}</td>
+                <td>{{ musee.nomMus }}</td>
+                <td>{{ musee.nblivres }}</td>
+                <td>{{ musee.codePays }}</td>
+                <td>
+                    <a href="{{ path('musees_show', {'id': musee.id}) }}">show</a>
+                    <a href="{{ path('musees_edit', {'id': musee.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('musees_new') }}">Create new</a>
+{% endblock %}

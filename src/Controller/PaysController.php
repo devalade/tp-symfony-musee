@@ -91,4 +91,9 @@ class PaysController extends AbstractController
 
         return $this->redirectToRoute('pays_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    public static function getAllPays(PaysRepository $paysRepository)
+    {
+        return  $paysRepository->findAll();
+    }
 }

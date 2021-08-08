@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Musees{% endblock %}
+
+{% block body %}
+    <h1>Create new Musees</h1>
+
+    {{ include('musees/_form.html.twig') }}
+
+    <a href="{{ path('musees_index') }}">back to list</a>
+{% endblock %}

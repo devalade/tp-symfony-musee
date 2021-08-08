@@ -11,11 +11,14 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PaysType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('codePays', TextType::class)
-            ->add('nbhabitant', NumberType::class)
+            ->add('nbhabitant', NumberType::class, [
+                'label' => 'Nombre habitant'
+            ])
         ;
     }
 
