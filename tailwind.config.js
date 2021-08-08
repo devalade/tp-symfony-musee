@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   purge: {
     layers: ['components', 'utilities'],
     content: [
@@ -7,7 +8,7 @@ module.exports = {
     './assets/**/*.js',
     ]
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: true, // or 'media' or 'class'
   theme: {
     extend: {},
   },
