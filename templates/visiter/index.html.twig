@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visiter index{% endblock %}
+
+{% block body %}
+    <h1>Visiter index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NumMus</th>
+                <th>Jour</th>
+                <th>Nbvisiteurs</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for visiter in visiters %}
+            <tr>
+                <td>{{ visiter.id }}</td>
+                <td>{{ visiter.numMus }}</td>
+                <td>{{ visiter.jour }}</td>
+                <td>{{ visiter.nbvisiteurs }}</td>
+                <td>
+                    <a href="{{ path('visiter_show', {'id': visiter.id}) }}">show</a>
+                    <a href="{{ path('visiter_edit', {'id': visiter.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('visiter_new') }}">Create new</a>
+{% endblock %}

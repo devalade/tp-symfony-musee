@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Visiter{% endblock %}
+
+{% block body %}
+    <h1>Edit Visiter</h1>
+
+    {{ include('visiter/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('visiter_index') }}">back to list</a>
+
+    {{ include('visiter/_delete_form.html.twig') }}
+{% endblock %}

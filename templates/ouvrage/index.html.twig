@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ouvrage index{% endblock %}
+
+{% block body %}
+    <h1>Ouvrage index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>ISBN</th>
+                <th>NbPage</th>
+                <th>Titre</th>
+                <th>CodePays</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ouvrage in ouvrages %}
+            <tr>
+                <td>{{ ouvrage.id }}</td>
+                <td>{{ ouvrage.ISBN }}</td>
+                <td>{{ ouvrage.nbPage }}</td>
+                <td>{{ ouvrage.titre }}</td>
+                <td>{{ ouvrage.codePays }}</td>
+                <td>
+                    <a href="{{ path('ouvrage_show', {'id': ouvrage.id}) }}">show</a>
+                    <a href="{{ path('ouvrage_edit', {'id': ouvrage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('ouvrage_new') }}">Create new</a>
+{% endblock %}

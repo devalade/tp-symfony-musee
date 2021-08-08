@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Referencer{% endblock %}
+
+{% block body %}
+    <h1>Create new Referencer</h1>
+
+    {{ include('referencer/_form.html.twig') }}
+
+    <a href="{{ path('referencer_index') }}">back to list</a>
+{% endblock %}

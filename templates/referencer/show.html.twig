@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Referencer{% endblock %}
+
+{% block body %}
+    <h1>Referencer</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ referencer.id }}</td>
+            </tr>
+            <tr>
+                <th>NomSite</th>
+                <td>{{ referencer.nomSite }}</td>
+            </tr>
+            <tr>
+                <th>NumeroPage</th>
+                <td>{{ referencer.numeroPage }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('referencer_index') }}">back to list</a>
+
+    <a href="{{ path('referencer_edit', {'id': referencer.id}) }}">edit</a>
+
+    {{ include('referencer/_delete_form.html.twig') }}
+{% endblock %}

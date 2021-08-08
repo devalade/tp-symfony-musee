@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Referencer{% endblock %}
+
+{% block body %}
+    <h1>Edit Referencer</h1>
+
+    {{ include('referencer/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('referencer_index') }}">back to list</a>
+
+    {{ include('referencer/_delete_form.html.twig') }}
+{% endblock %}

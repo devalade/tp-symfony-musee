@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Referencer index{% endblock %}
+
+{% block body %}
+    <h1>Referencer index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomSite</th>
+                <th>NumeroPage</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for referencer in referencers %}
+            <tr>
+                <td>{{ referencer.id }}</td>
+                <td>{{ referencer.nomSite }}</td>
+                <td>{{ referencer.numeroPage }}</td>
+                <td>
+                    <a href="{{ path('referencer_show', {'id': referencer.id}) }}">show</a>
+                    <a href="{{ path('referencer_edit', {'id': referencer.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('referencer_new') }}">Create new</a>
+{% endblock %}
