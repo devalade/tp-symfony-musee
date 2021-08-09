@@ -3,41 +3,21 @@
 {% block title%}Pays index{% endblock %}
 
 {% block body %}
-{#        <div class="min-h-screen flex items-center justify-center">#}
-
-{#        <h1>Pays index</h1>#}
-
-{#        <table class="">#}
-{#            <thead>#}
-{#                <tr>#}
-{#                    <th>Id</th>#}
-{#                    <th>CodePays</th>#}
-{#                    <th>Nbhabitant</th>#}
-{#                    <th>actions</th>#}
-{#                </tr>#}
-{#            </thead>#}
-{#            <tbody>#}
-{#            {% for pay in pays %}#}
-{#                <tr>#}
-{#                    <td>{{ pay.id }}</td>#}
-{#                    <td>{{ pay.codePays }}</td>#}
-{#                    <td>{{ pay.nbhabitant }}</td>#}
-{#                    <td>#}
-{#                        <a href="{{ path('pays_show', {'id': pay.id}) }}">show</a>#}
-{#                        <a href="{{ path('pays_edit', {'id': pay.id}) }}">edit</a>#}
-{#                    </td>#}
-{#                </tr>#}
-{#            {% else %}#}
-{#                <tr>#}
-{#                    <td colspan="4">no records found</td>#}
-{#                </tr>#}
-{#            {% endfor %}#}
-{#            </tbody>#}
-{#        </table>#}
-{#    </div>#}
 
 <div class="mt-12 w-3/4 mx-auto">
-    <a class="bg-blue-700 text-blue-200 px-4 py-3 rounded" href="{{ path('pays_new') }}">Create new</a>
+    {% for message in app.flashes('message') %}
+        <div class="w-full mb-6 text-white bg-green-500">
+            <div class="container flex items-center justify-between px-6 py-4 mx-auto">
+                <div class="flex">
+                    <svg viewBox="0 0 40 40" class="w-6 h-6 fill-current">
+                        <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z"></path>
+                    </svg>
+                    <p class="mx-3">{{ message }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <a class="bg-blue-700 text-blue-200 px-4 py-3 rounded font-medium" href="{{ path('pays_new') }}">Create new</a>
     <div class="flex flex-col mt-12">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -75,7 +55,7 @@
                                     {{ pay.nbhabitant }}
                                 </td>
                                 <td class="flex px-6 py-4 space-x-2 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="{{ path('pays_edit', {'id': pay.id}) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    <a href="{{ path('pays_edit', {'id': pay.id}) }}" class="text-green-50  hover:bg-green-400 px-6 py-2 bg-green-500 rounded">Edit</a>
     {#                                <a href="{{ path('pays_delete', {'id': pay.id}) }}" class="text-red-600 hover:text-red-900">Delete</a>#}
                                     {{ include('pays/_delete_form.html.twig') }}
                                 </td>

@@ -39,6 +39,8 @@ class PaysController extends AbstractController
             $entityManager->persist($pay);
             $entityManager->flush();
 
+            $this->addFlash('message', 'Ajoutez avec success');
+
             return $this->redirectToRoute('pays_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -68,6 +70,8 @@ class PaysController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('message', 'Mise a jour avec success');
 
             return $this->redirectToRoute('pays_index', [], Response::HTTP_SEE_OTHER);
         }

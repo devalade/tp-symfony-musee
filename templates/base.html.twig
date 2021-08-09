@@ -161,9 +161,11 @@
                                         Pays
                                     </h1>
                                 </div>
+                                {% if app.user %}
+
                                 <div class="relative space-x-2 p-1 flex items-center justify-end w-1/4 ml-5 mr-4 sm:mr-0 sm:right-auto">
                                     <a href="#" class="flex relative">
-                                        <h3 class="text-xl text-gray-400 mr-4 mt-1">Nom et prenom</h3>
+                                        <h3 class="text-xl text-gray-400 mr-4 mt-1">{{ app.user.username }}</h3>
                                         <img alt="profil"
                                              src="https://images.unsplash.com/photo-1597223557154-721c1cecc4b0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cG9ydHJhaXR8ZW58MHwyfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="mx-auto object-cover rounded-full h-10 w-10 "
                                         />
@@ -179,12 +181,13 @@
 
                                         <!-- Dropdown menu -->
                                         <div id="dropdown--menu" class="absolute hidden right-0 z-20 w-48 py-2 mt-2 bg-white rounded-md shadow-xl dark:bg-gray-800">
-                                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-blue-500 hover:text-white dark:hover:text-white">
+                                            <a href="{{ path('logout') }}" class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-blue-500 hover:text-white dark:hover:text-white">
                                                 Sign Out
                                             </a>
                                         </div>
                                     </div>
                                 </div>
+                                {% endif %}
                             </div>
                         </div>
                     </header>
